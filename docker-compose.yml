@@ -4,7 +4,15 @@ services:
     container_name: ionic
     build: .
     volumes:
-      - ./:/app
+      - .:/app
     ports:
       - 8100:8100
-    command: "npm start"
+    entrypoint:
+      - sh
+    command:
+      - -c
+      - |
+        [ -f ~/.exec-once ] || {
+          yarn install && touch .exec-once
+        }
+        yarn start

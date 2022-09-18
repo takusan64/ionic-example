@@ -1,5 +1,8 @@
 # Get Started
 
+- Node: 16.17.0
+- Ionic: 6.20.1
+
 ## Start Development
 
 ```sh
@@ -14,11 +17,11 @@ docker-compose up
 
 ```sh
 # IOS / Android 両方ビルド
-docker run --rm -w "/app" -v "${PWD}:/app" node:16.15.1-buster-slim npm run build
+docker run --rm -w "/app" -v "${PWD}:/app" . npm run build
 
 # IOSのみビルド
-docker run --rm -w "/app" -v "${PWD}:/app" node:16.15.1-buster-slim npm run build:ios
+docker run --rm -w "/app" -v "${PWD}:/app" . npm run build:ios
 
 # Andriodのみビルド
-docker run --rm -w "/app" -v "${PWD}:/app" node:16.15.1-buster-slim npm run build:android
+docker run --rm -w "/app" -v "${PWD}:/app" . npm run build:android
 ```

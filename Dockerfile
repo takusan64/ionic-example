@@ -7,10 +7,8 @@ WORKDIR /app
 
 EXPOSE 8100
 
-COPY package*.json ./
+COPY ["package.json", "yarn.lock", "capacitor.config.ts", "ionic.config.json", "./"]
 
 RUN npm i -g @ionic/cli@6.20.1
 
 RUN ionic integrations enable capacitor
-
-CMD ["npm", "install"]
