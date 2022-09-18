@@ -1,0 +1,10 @@
+version: "3"
+services:
+  web:
+    container_name: ionic
+    build: .
+    volumes:
+      - ./:/app
+    ports:
+      - 8100:8100
+    command: "npm start"
