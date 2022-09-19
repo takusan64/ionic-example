@@ -15,13 +15,15 @@ docker-compose up
 
 # Build Native Application
 ※`Start Development`完了後に、以下の実行を行ってください。
+また IOS/Android のビルドコマンドの最後に、XCodeとAndroid Studioが開けないエラーが出る場合は無視してください。
+(ファイル自体はビルドされているため、シュミレーターで起動確認ができます。)
 
 ```sh
 # IOSビルド
 ## Step1：以下を実行
 docker run --rm -w "/app" -v "${PWD}:/app" ionic-example-web npm run build:ios
 
-## Step2: エラーが出る場合、コンテナ内で以下を実行(Mac M1限定の障害？)
+## Step2: 「pod install」 でエラー出る場合、コンテナ内で以下を実行(Mac M1限定の障害？)
 ## https://forum.ionicframework.com/t/new-project-with-capacitor-wont-sync/219627
 docker-compose exec web /bin/sh
 cd /app/ios/App
