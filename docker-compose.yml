@@ -3,16 +3,18 @@ services:
   web:
     container_name: ionic
     build: .
+    working_dir: /app
     volumes:
       - .:/app
     ports:
-      - 8100:8100
+      - 8100:3000
+    privileged: true
     entrypoint:
       - sh
     command:
       - -c
       - |
-        [ -f ~/.exec-once ] || {
-          yarn install && touch .exec-once
+        [ -f .exec-once ] || {
+          npm install && touch .exec-once
         }
-        yarn start
+        npm run start

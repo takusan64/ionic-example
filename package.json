@@ -1,5 +1,5 @@
 {
-  "name": "myApp",
+  "name": "my-app",
   "version": "0.0.1",
   "private": true,
   "dependencies": {
@@ -43,10 +43,10 @@
     "workbox-streams": "^5.1.4"
   },
   "scripts": {
-    "start": "ionic serve",
-    "build": "ionic build & ionic cap add ios & ionic cap add android",
-    "build:ios": "ionic build & ionic cap add ios",
-    "build:android": "ionic build & ionic cap add android",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "build:ios": "ionic cap build ios",
+    "build:android": "ionic cap build android",
     "test": "react-scripts test --transformIgnorePatterns 'node_modules/(?!(@ionic/react|@ionic/react-router|@ionic/core|@stencil/core|ionicons)/)'",
     "eject": "react-scripts eject"
   },

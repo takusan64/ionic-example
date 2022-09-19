@@ -16,12 +16,21 @@ docker-compose up
 # Build Native Application
 
 ```sh
-# IOS / Android 両方ビルド
-docker run --rm -w "/app" -v "${PWD}:/app" . npm run build
+# IOSビルド
+## Step1：以下を実行
+docker run --rm -w "/app" -v "${PWD}:/app" ionic-example-web npm run build:ios
 
-# IOSのみビルド
-docker run --rm -w "/app" -v "${PWD}:/app" . npm run build:ios
+## Step2: エラーが出るので、コンテナ内で以下を実行(Mac M1限定の障害？)
+## https://forum.ionicframework.com/t/new-project-with-capacitor-wont-sync/219627
+cd /app/ios/App
+pod install --allow-root
 
-# Andriodのみビルド
-docker run --rm -w "/app" -v "${PWD}:/app" . npm run build:android
+# Andriodビルド
+## Step1：以下を実行
+docker run --rm -w "/app" -v "${PWD}:/app" ionic-example-web npm run build:android
 ```
+作成された各アプリを`XCode`,`Android Studio'で開くことで、シュミレーターから確認できます。
+
+
+# 参考
+- [M1 Macでpod installが失敗する問題の解決法]（https://toritakashi.com/archives/2307）
